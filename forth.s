@@ -12,8 +12,12 @@ _start:
     lla gp, __global_pointer$
     .option pop
 
-    # Print out a
-    li a0, 'a'
+    # Print out uwu
+    li a0, 'u'
+    jal sbi_console_putchar
+    li a0, 'w'
+    jal sbi_console_putchar
+    li a0, 'u'
     jal sbi_console_putchar
 
     # Loop forever
@@ -31,6 +35,7 @@ sbi_console_putchar:
     li a7, 1
     ecall
     ret
+
 
 # sbi_console_getchar() -> int
 # Gets a character from the UART port.
